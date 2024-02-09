@@ -1,0 +1,58 @@
+name: secure_notes
+description: An Assessment For Ontik Technologies
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.4 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+
+  #State Management
+  get: ^4.6.6
+
+  #UI
+  google_fonts: ^6.1.0
+  lottie: ^2.7.0
+  shimmer: ^3.0.0
+  font_awesome_flutter: ^10.7.0
+
+  #Network
+  dio: ^5.4.0
+  pretty_dio_logger: ^1.3.1
+  logger: ^2.0.2+1
+  connectivity_plus: ^2.3.8
+
+  #Local Database
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  hive_generator: ^2.0.1
+
+  #Secure Data
+  flutter_secure_storage: ^9.0.0
+  intl: ^0.19.0
+  flutter_svg: ^2.0.9
+
+  #Firebase
+  firebase_auth: ^4.16.0
+  google_sign_in: ^6.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+
