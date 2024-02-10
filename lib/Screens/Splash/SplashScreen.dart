@@ -3,17 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:secure_notes/Screens/Splash/SplashController.dart';
 import 'package:secure_notes/Utils/AppImages.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+  SplashScreen({super.key});
+
+  final SplashController controller = Get.put(SplashController());
 
   @override
   Widget build(BuildContext context) {
-
-    Timer(const Duration(seconds: 4), () {
-      Get.offAndToNamed("/loginPage");
-    });
 
     return Scaffold(
       backgroundColor: Colors.white,

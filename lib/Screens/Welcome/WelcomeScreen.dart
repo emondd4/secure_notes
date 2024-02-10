@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:secure_notes/Screens/Welcome/WelcomeController.dart';
@@ -61,23 +60,27 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.22,
                 ),
-                Align(alignment: Alignment.center,child: Obx(() => controller.photo.isNotEmpty
-                    ? CircleAvatar(
-                  radius: 80,
-                  backgroundColor: Colors.green,
-                  child: CircleAvatar(
-                    radius: 75,
-                    backgroundImage: NetworkImage(controller.photo.value),
-                  ),
-                )
-                    : const CircleAvatar(
-                  radius: 80,
-                  backgroundColor: Colors.green,
-                  child: CircleAvatar(
-                    radius: 75,
-                    backgroundColor: Colors.lightGreen,
-                  ),
-                )),),
+                Align(
+                  alignment: Alignment.center,
+                  child: Obx(() => controller.photo.isNotEmpty
+                      ? CircleAvatar(
+                          radius: 80,
+                          backgroundColor: Colors.green,
+                          child: CircleAvatar(
+                            radius: 75,
+                            backgroundImage:
+                                NetworkImage(controller.photo.value),
+                          ),
+                        )
+                      : const CircleAvatar(
+                          radius: 80,
+                          backgroundColor: Colors.green,
+                          child: CircleAvatar(
+                            radius: 75,
+                            backgroundColor: Colors.lightGreen,
+                          ),
+                        )),
+                ),
                 SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.22,
                 ),
