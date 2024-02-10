@@ -20,7 +20,7 @@ class DashboardController extends GetxController{
     name.value = await SecureStorage().readSecureData("Name");
     image.value = await SecureStorage().readSecureData("Photo");
     noteList.value = await SecureStorage().getNoteList() ?? NoteListBaseResponse(data: Data(data: []));
-    getMovieList();
+    getNoteList();
     super.onInit();
   }
 
@@ -29,7 +29,7 @@ class DashboardController extends GetxController{
   }
 
   ///Api Calls
-  Future getMovieList() async {
+  Future getNoteList() async {
 
     CommonUtil.instance.internetCheck().then((value) async {
       if (value) {

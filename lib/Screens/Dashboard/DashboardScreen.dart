@@ -57,7 +57,9 @@ class DashboardScreen extends StatelessWidget {
           itemCount: controller.noteList.value?.data?.data?.length,
         )),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            controller.gotoInputPage();
+          },
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
           backgroundColor: Colors.orange,

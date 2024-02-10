@@ -67,9 +67,9 @@ class NoteEntryScreen extends StatelessWidget {
                 const SizedBox(
                   height: 15.0,
                 ),
-                const TextField(
+                TextField(
                   textAlign: TextAlign.start,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Input Title',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
@@ -81,6 +81,7 @@ class NoteEntryScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  controller: controller.titleController,
                 ),
                 const SizedBox(
                   height: 30.0,
@@ -95,9 +96,9 @@ class NoteEntryScreen extends StatelessWidget {
                 const SizedBox(
                   height: 15.0,
                 ),
-                const TextField(
+                TextField(
                   textAlign: TextAlign.start,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Input Description',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
@@ -110,6 +111,7 @@ class NoteEntryScreen extends StatelessWidget {
                     ),
                   ),
                   maxLines: 10,
+                  controller: controller.descController,
                 ),
                 const SizedBox(
                   height: 15.0,
@@ -172,6 +174,7 @@ class NoteEntryScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   child: InkWell(
                     onTap: () {
+                      controller.createNote();
                     },
                     child: Container(
                       height: 41.0,
