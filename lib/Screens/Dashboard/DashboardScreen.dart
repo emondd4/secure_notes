@@ -13,12 +13,13 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(51),
+          preferredSize: const Size.fromHeight(71),
           child: Container(
             color: Colors.white,
             child: Padding(
-              padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 5.0),
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
