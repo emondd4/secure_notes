@@ -43,13 +43,26 @@ class ApiClient {
 
   }
 
-  /// UPDATE CALL
+  /// PUT CALL
   static Future<dynamic> put(
       String url, dynamic params, dynamic body, bool isTokenRequired,bool isImageRequired) async {
     try {
       Dio dio = await _dioClient(isTokenRequired,isImageRequired);
       Response response =
       await dio.put(url, queryParameters: params, data: body);
+      return _response(response);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  /// PATCH CALL
+  static Future<dynamic> patch(
+      String url, dynamic params, dynamic body, bool isTokenRequired,bool isImageRequired) async {
+    try {
+      Dio dio = await _dioClient(isTokenRequired,isImageRequired);
+      Response response =
+      await dio.patch(url, queryParameters: params, data: body);
       return _response(response);
     } catch (e) {
       rethrow;

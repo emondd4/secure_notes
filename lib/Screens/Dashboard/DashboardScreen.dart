@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:secure_notes/Screens/Dashboard/DashboardController.dart';
+import 'package:secure_notes/Utils/AppImages.dart';
 
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({super.key});
@@ -50,10 +52,10 @@ class DashboardScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: ListView.builder(
+        body: Obx(() => controller.noteList.value?.data?.data?.isEmpty == true ? Center(child: Lottie.asset(AppImages.instance.emptyAnim),) : ListView.builder(
           itemBuilder: (context, index) => noteItem(index),
-          itemCount: 7,
-        ),
+          itemCount: controller.noteList.value?.data?.data?.length,
+        )),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           shape:
@@ -99,14 +101,14 @@ class DashboardScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                     Text(
-                      "Secure Notes",
+                      controller.noteList.value?.data?.data?[index].title ?? "Loading...",
                       style: GoogleFonts.nunito(
                           fontSize: 20.0,
                           fontWeight: FontWeight.w700,
                           color: Colors.black),
                     ),
                     Text(
-                      "ksdjflskdjfksdjflksdfhkjasdfasdfsdfsdfsdfsdfsdfsdfsdf",
+                      controller.noteList.value?.data?.data?[index].description ?? "Loading...",
                       style: GoogleFonts.nunito(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w700,
@@ -118,7 +120,7 @@ class DashboardScreen extends StatelessWidget {
               ),
                   )),
               Text(
-                "25 Nov",
+                controller.getTime(controller.noteList.value!.data!.data![index].updatedAt!),
                 style: GoogleFonts.nunito(
                     fontSize: 15.0,
                     fontWeight: FontWeight.w500,

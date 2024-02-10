@@ -58,7 +58,7 @@ class UIUtil {
   }
 
   void onFailed(String failedMsg) {
-    Get.dialog(CustomDialog(title: "No Internet!", message: "Please Check Your Connectivity!", image: AppImages.instance.noInternetAnim));
+    Get.dialog(CustomDialog(title: "Failed!", message: failedMsg, image: AppImages.instance.errorAnim));
   }
 
 
