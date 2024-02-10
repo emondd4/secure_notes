@@ -24,8 +24,8 @@ class DashboardController extends GetxController{
     super.onInit();
   }
 
-  gotoInputPage() {
-    Get.toNamed("/NoteInputPage");
+  gotoInputPage(String? id,String? title,String? desc,bool flag) {
+    Get.toNamed("/NoteInputPage",arguments: {"id":id,"title":title,"desc":desc,"flag":flag});
   }
 
   ///Api Calls

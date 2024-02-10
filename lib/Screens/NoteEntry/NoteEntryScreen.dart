@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:secure_notes/Screens/NoteEntry/NoteEntryController.dart';
@@ -37,7 +36,9 @@ class NoteEntryScreen extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        controller.deleteNote();
+                      },
                       child: const Icon(
                         Icons.delete_outline,
                         size: 36,
@@ -174,7 +175,11 @@ class NoteEntryScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   child: InkWell(
                     onTap: () {
-                      controller.createNote();
+                      if (controller.flag) {
+                        controller.updateNote();
+                      } else{
+                        controller.createNote();
+                      }
                     },
                     child: Container(
                       height: 41.0,

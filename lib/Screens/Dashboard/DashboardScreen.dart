@@ -54,11 +54,11 @@ class DashboardScreen extends StatelessWidget {
         ),
         body: Obx(() => controller.noteList.value?.data?.data?.isEmpty == true ? Center(child: Lottie.asset(AppImages.instance.emptyAnim),) : ListView.builder(
           itemBuilder: (context, index) => noteItem(index),
-          itemCount: controller.noteList.value?.data?.data?.length,
+          itemCount: controller.noteList.value?.data?.data?.length ?? 0,
         )),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            controller.gotoInputPage();
+            controller.gotoInputPage(null,null,null,false);
           },
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
@@ -75,7 +75,7 @@ class DashboardScreen extends StatelessWidget {
   Widget noteItem(int index) {
     return InkWell(
       onTap: () {
-        controller.gotoInputPage();
+        controller.gotoInputPage(controller.noteList.value?.data?.data?[index].id.toString(),controller.noteList.value?.data?.data?[index].title, controller.noteList.value?.data?.data?[index].description,true);
       },
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -122,7 +122,7 @@ class DashboardScreen extends StatelessWidget {
               ),
                   )),
               Text(
-                controller.getTime(controller.noteList.value!.data!.data![index].updatedAt!),
+                controller.getTime(controller.noteList.value?.data?.data?[index].updatedAt ?? "2024-02-10T15:13:31.000000Z"),
                 style: GoogleFonts.nunito(
                     fontSize: 15.0,
                     fontWeight: FontWeight.w500,
