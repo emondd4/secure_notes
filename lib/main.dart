@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'Utils/AppRoutes.dart';
 import 'Utils/NotificationService.dart';
@@ -9,7 +8,6 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initNotification();
   tz.initializeTimeZones();
-  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
