@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:secure_notes/Screens/Welcome/WelcomeController.dart';
 
+import '../../Utils/AppColors.dart';
+
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
 
@@ -28,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                       fontSize: 36.0,
                       fontWeight: FontWeight.w700,
-                      color: Colors.black),
+                      color: AppColors.instance.appPrimacyColor),
                 ),
                 Obx(
                   () => controller.name.isNotEmpty
@@ -38,7 +40,7 @@ class WelcomeScreen extends StatelessWidget {
                               fontStyle: FontStyle.normal,
                               fontSize: 30.0,
                               fontWeight: FontWeight.w700,
-                              color: Colors.black),
+                              color: AppColors.instance.appPrimacyColor),
                         )
                       : Text(
                           "Loading",
@@ -46,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                               fontStyle: FontStyle.normal,
                               fontSize: 30.0,
                               fontWeight: FontWeight.w700,
-                              color: Colors.black),
+                              color: AppColors.instance.appSecondaryColor),
                         ),
                 ),
                 Text(
@@ -55,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w500,
-                      color: Colors.black),
+                      color: AppColors.instance.appSecondaryColor),
                 ),
                 SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.22,
@@ -65,19 +67,19 @@ class WelcomeScreen extends StatelessWidget {
                   child: Obx(() => controller.photo.isNotEmpty
                       ? CircleAvatar(
                           radius: 80,
-                          backgroundColor: Colors.green,
+                          backgroundColor: AppColors.instance.appPrimacyColor,
                           child: CircleAvatar(
                             radius: 75,
                             backgroundImage:
                                 NetworkImage(controller.photo.value),
                           ),
                         )
-                      : const CircleAvatar(
+                      : CircleAvatar(
                           radius: 80,
-                          backgroundColor: Colors.green,
+                          backgroundColor: AppColors.instance.appPrimacyColor,
                           child: CircleAvatar(
                             radius: 75,
-                            backgroundColor: Colors.lightGreen,
+                            backgroundColor: AppColors.instance.appSecondaryColor,
                           ),
                         )),
                 ),
@@ -95,7 +97,7 @@ class WelcomeScreen extends StatelessWidget {
                       width: MediaQuery.sizeOf(context).width * 0.65,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
-                          color: Colors.orange),
+                          color: AppColors.instance.appPrimacyColor),
                       child: Center(
                         child: Text(
                           "Continue",
@@ -103,7 +105,7 @@ class WelcomeScreen extends StatelessWidget {
                               fontStyle: FontStyle.normal,
                               fontSize: 15.0,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black),
+                              color: AppColors.instance.appLightColor),
                         ),
                       ),
                     ),

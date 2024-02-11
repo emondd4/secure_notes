@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:secure_notes/Screens/Login/LoginController.dart';
+import 'package:secure_notes/Utils/AppColors.dart';
 import 'package:secure_notes/Utils/AppImages.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -31,8 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Welcome To Secure Notes",style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 36.0, fontWeight: FontWeight.w700,color: Colors.black),),
-                Text("Please Sign In With Your Google Account",style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 15.0, fontWeight: FontWeight.w500,color: Colors.black),),
+                Text("Welcome To Secure Notes",style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 36.0, fontWeight: FontWeight.w700,color: AppColors.instance.appPrimacyColor),),
+                Text("Please Sign In With Your Google Account",style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 15.0, fontWeight: FontWeight.w500,color: AppColors.instance.appSecondaryColor),),
                 SvgPicture.asset(AppImages.instance.loginSvg,height: MediaQuery.sizeOf(context).height * 0.5,),
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.06,),
                 Align(
@@ -46,14 +47,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: MediaQuery.sizeOf(context).width * 0.65,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
-                        color: Colors.orange
+                        color: AppColors.instance.appPrimacyColor
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(FontAwesomeIcons.google,size: 16.0,),
+                          Icon(FontAwesomeIcons.google,size: 16.0,color: AppColors.instance.appLightColor,),
                           const SizedBox(width: 20.0,),
-                          Text("Sign In with Google",style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 15.0, fontWeight: FontWeight.w500,color: Colors.black),),
+                          Text("Sign In with Google",style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 15.0, fontWeight: FontWeight.w500,color: AppColors.instance.appLightColor),),
                         ],
                       ),
                     ),

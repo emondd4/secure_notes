@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
     <application
-        android:label="secure_notes"
+        android:label="Secure Notes"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

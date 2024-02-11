@@ -6,6 +6,8 @@ import 'package:lottie/lottie.dart';
 import 'package:secure_notes/Screens/Dashboard/DashboardController.dart';
 import 'package:secure_notes/Utils/AppImages.dart';
 
+import '../../Utils/AppColors.dart';
+
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({super.key});
 
@@ -30,17 +32,17 @@ class DashboardScreen extends StatelessWidget {
                     style: GoogleFonts.nunito(
                         fontSize: 26.0,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black),
+                        color: AppColors.instance.appPrimacyColor),
                   ),
                   Obx(() => controller.image.isNotEmpty
                       ? CircleAvatar(
                           radius: 24,
                           backgroundImage: NetworkImage(controller.image.value),
                         )
-                      : const CircleAvatar(
+                      : CircleAvatar(
                           radius: 24,
-                          backgroundColor: Colors.orange,
-                          child: Center(
+                          backgroundColor: AppColors.instance.appPrimacyColor,
+                          child: const Center(
                             child: Text(
                               "P",
                               style: TextStyle(fontSize: 16),
@@ -62,10 +64,11 @@ class DashboardScreen extends StatelessWidget {
           },
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-          backgroundColor: Colors.orange,
-          child: const Icon(
+          backgroundColor: AppColors.instance.appPrimacyColor,
+          child: Icon(
             FontAwesomeIcons.add,
             size: 24.0,
+            color: AppColors.instance.appLightColor,
           ),
         ),
       ),
@@ -86,11 +89,11 @@ class DashboardScreen extends StatelessWidget {
               Container(
                 height: 123,
                 width: 10,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(15.0),
                         bottomLeft: Radius.circular(15.0)),
-                    gradient: LinearGradient(colors: [Colors.orange, Colors.red])),
+                    gradient: LinearGradient(colors: [AppColors.instance.appPrimacyColor, AppColors.instance.appSecondaryColor])),
               ),
               const SizedBox(
                 width: 10.0,
@@ -107,14 +110,14 @@ class DashboardScreen extends StatelessWidget {
                       style: GoogleFonts.nunito(
                           fontSize: 20.0,
                           fontWeight: FontWeight.w700,
-                          color: Colors.black),
+                          color: AppColors.instance.appSecondaryColor),
                     ),
                     Text(
                       controller.noteList.value?.data?.data?[index].description ?? "Loading...",
                       style: GoogleFonts.nunito(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w700,
-                          color: Colors.black),
+                          color: AppColors.instance.appSecondaryColor),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -125,8 +128,8 @@ class DashboardScreen extends StatelessWidget {
                 controller.getTime(controller.noteList.value?.data?.data?[index].updatedAt ?? "2024-02-10T15:13:31.000000Z"),
                 style: GoogleFonts.nunito(
                     fontSize: 15.0,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.orange),
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.instance.appPrimacyColor),
               ),
             ],
           ),
