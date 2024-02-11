@@ -11,7 +11,7 @@ class SplashController extends GetxController{
   Future<void> onInit() async {
     name = await SecureStorage().readSecureData("Name");
     Timer(const Duration(seconds: 4), () {
-      if (name != "" && name != "null") {
+      if (name != "No data found!") {
         Get.offAndToNamed("/dashboardPage");
       }else{
         Get.offAndToNamed("/loginPage");

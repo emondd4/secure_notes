@@ -119,11 +119,13 @@ class NoteEntryScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Checkbox(
-                      value: false,
-                      onChanged: (value) {},
+                    Obx(() => Checkbox(
+                      value: controller.selected.value,
+                      onChanged: (value) {
+                        controller.selected.value = value!;
+                      },
                       checkColor: Colors.orange,
-                    ),
+                    )),
                     Text(
                       "Set Reminder",
                       style: GoogleFonts.nunito(
@@ -135,30 +137,41 @@ class NoteEntryScreen extends StatelessWidget {
                       width: 30.0,
                     ),
                     Obx(() => controller.pickedDate.isEmpty
-                        ? Container(
-                            height: 41,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                border:
-                                    Border.all(width: 1, color: Colors.black)),
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                15.0,
-                                0.0,
-                                15.0,
-                                0.0,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Pick Date & Time",
-                                  style: GoogleFonts.nunito(
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black),
+                        ? InkWell(
+                      onTap: () {
+                        controller.datePick();
+                      },
+                          child: Container(
+                              height: 41,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border:
+                                      Border.all(width: 1, color: Colors.black)),
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  15.0,
+                                  0.0,
+                                  15.0,
+                                  0.0,
+                                ),
+                                child: Center(
+                                  child: Obx(() => controller.selectedTimeDate.value.isEmpty ? Text(
+                                    "Pick Date & Time",
+                                    style: GoogleFonts.nunito(
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black),
+                                  ) : Text(
+                                    controller.selectedTimeDate.value,
+                                    style: GoogleFonts.nunito(
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black),
+                                  )),
                                 ),
                               ),
                             ),
-                          )
+                        )
                         : Text(
                             controller.pickedDate.value,
                             style: GoogleFonts.nunito(
